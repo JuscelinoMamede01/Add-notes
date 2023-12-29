@@ -96,6 +96,7 @@ const Note: React.FC<NoteProps> = ({ note }) => {
                     className="p-4 w-full outline-none"
                     type="text"
                     id="title"
+                    name="title"
                   />
                 </div>
                 <div>
