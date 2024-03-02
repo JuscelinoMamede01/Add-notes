@@ -1,7 +1,11 @@
 import prisma from "@/libs/db";
 import { NextResponse } from "next/server";
 
-export const GET = async (request: Request, { params }) => {
+interface Params {
+  id: string; // Defina o tipo correto para o id aqui
+}
+
+export const GET = async (request: Request, { params }: { params: Params }) => {
   try {
     const { id } = params;
 
@@ -12,10 +16,7 @@ export const GET = async (request: Request, { params }) => {
     });
 
     if (!post) {
-      return NextResponse.json(
-        { message: "Post not found", Error },
-        { status: 404 }
-      );
+      return NextResponse.json({ message: "Post not found" }, { status: 404 });
     }
     return NextResponse.json(post);
   } catch (error) {
@@ -23,7 +24,10 @@ export const GET = async (request: Request, { params }) => {
   }
 };
 
-export const PATCH = async (request: Request, { params }) => {
+export const PATCH = async (
+  request: Request,
+  { params }: { params: Params }
+) => {
   try {
     const body = await request.json();
     const { title, description } = body;
@@ -41,18 +45,21 @@ export const PATCH = async (request: Request, { params }) => {
     });
 
     if (!updatedPost) {
-      return NextResponse.json(
-        { message: "Post not found", Error },
-        { status: 404 }
-      );
+      return NextResponse.json({ message: "Post not found" }, { status: 404 });
     }
     return NextResponse.json(updatedPost);
   } catch (error) {
-    return NextResponse.json({ message: "GET Error", error }, { status: 500 });
+    return NextResponse.json(
+      { message: "PATCH Error", error },
+      { status: 500 }
+    );
   }
 };
 
-export const DELETE = async (request: Request, { params }) => {
+export const DELETE = async (
+  request: Request,
+  { params }: { params: Params }
+) => {
   try {
     const { id } = params;
 
