@@ -33,7 +33,7 @@ const AddNote = () => {
   };
 
   return (
-    <section className="bg-white mt-6 p-4 rounded-lg">
+    <section className="bg-white mt-6 p-4  rounded-lg">
       <form
         className="flex flex-col gap-4 justify-center items-center"
         onSubmit={handleSubmit}
