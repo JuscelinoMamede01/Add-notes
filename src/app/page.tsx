@@ -2,7 +2,7 @@ import AddNote from "./components/AddNote";
 import NoteList from "./components/NoteList";
 
 async function getData() {
-  const res = await fetch("http://localhost:3000/api/post", {
+  const res = await fetch("https://add-notes-wheat.vercel.app/api/post", {
     cache: "no-store",
   });
 
