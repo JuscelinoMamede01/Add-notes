@@ -36,8 +36,6 @@ $ cd Add-notes
 
 ---
 
-by Juscelino Mamede 🎸
 
-JOHN 14:6 ✟
 
 
